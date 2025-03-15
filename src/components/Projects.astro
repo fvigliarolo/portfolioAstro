@@ -1,0 +1,52 @@
+---
+import ArrowRight from "./icons/ArrowRight.astro";
+import projects from "../data/projects";
+---
+
+<section id="projects" class="projects">
+    <ul>
+        {
+            projects.slice(0, 3).map(
+                (
+                    project, // Primeros 3 proyectos
+                ) => (
+                    <li>
+                        <h2>{project.title}</h2>
+                        <p>{project.description}</p>
+                        <ul class="tecnologies">
+                            {project.tecnologies.map((tecnology) => (
+                                <li>{tecnology}</li>
+                            ))}
+                        </ul>
+                        {/* <ul>
+                            {project.tags.map((tag) => (
+                                <li>{tag}</li>
+                            ))}
+                        </ul> */}
+                    </li>
+                ),
+            )
+        }
+    </ul>
+    <a href="/all_projects">See more projects <ArrowRight /> </a>
+</section>
+
+<style>
+    a {
+        display: inline-flex;
+        text-decoration: none;
+        align-items: center;
+    }
+
+    li {
+        list-style: none;
+    }
+    .tecnologies {
+        padding: 0;
+        display: flex;
+    }
+    .tecnologies li {
+        margin-right: 5px;
+        border: 1px solid #333;
+    }
+</style>

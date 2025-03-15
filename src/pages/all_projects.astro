@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import projects from "../data/projects";
+import ArrowLeft from "../components/icons/ArrowLeft.astro";
+---
+    <header>
+        <!-- atras -->
+        <a href="/"> <h1><ArrowLeft /> Back</h1></a>
+    </header>
+    <section id="Projects">
+        <h1>Projects</h1>
+        <ul>
+            {
+                projects.map(
+                    (
+                        project, // Todos los proyectos
+                    ) => (
+                        <li>
+                            <h3>{project.title}</h3>
+                            <p>{project.description}</p>
+                            <ul class="tecnologies">
+                                {project.tecnologies.map((tecnology) => (
+                                    <li>{tecnology}</li>
+                                ))}
+                            </ul>
+                            {/* <ul>
+                                {project.tags.map((tag) => (
+                                    <li>{tag}</li>
+                                ))}
+                            </ul> */}
+                        </li>
+                    ),
+                )
+            }
+        </ul>
+    </section>
+    <style>
+        section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;    
+        }
+        li {
+            list-style: none;
+        }
+        .tecnologies {
+            padding: 0;
+            display: flex;;
+            justify-content: center;
+
+        }
+        .tecnologies li {
+            margin-right: 5px;
+            border: 1px solid #333;
+        }
+        h1{
+            margin-bottom: 20px;
+        }
+        
+    </style>

@@ -1,0 +1,78 @@
+---
+import Github  from './icons/github.astro'
+import Linkedin from './icons/linkedin.astro'
+import Gmail from './icons/gmail.astro'
+
+const navItems = [
+    { title: 'About me ', label: '/about', url: '/#about' },
+    { title: 'Projects', label: 'projects', url: '/#projects' },
+    { title: 'Blog', label: '/blog', url: '/#blog' },
+]
+
+const socialItems = [
+    { title: 'Github', url: 'https://github.com/fvigliarolo' },
+    { title: 'Linkedin', url: 'https://www.linkedin.com/in/federico-vigliarolo/' },
+    { title: 'email', url: 'fd.vigliarolo@gmail.com'},
+]
+---
+
+<header>
+    <div class="Description">
+        <h1>Federico Vigliarolo</h1>
+        <p>
+            I build fullstack applications with javascript stack.
+            <br />
+            The lefting hours of the day, I work as a QA Engineer.
+        </p>
+    </div>
+    <nav>
+        {
+            navItems.map((item) => (
+                <a href={item.url} class="nav-item">{item.title}</a>
+            ))
+        }
+    </nav>
+    <div class="socialItems">
+        {
+            socialItems.map((item) => (
+                <a href={item.url} class="social-item">
+                    {item.title === 'Github' && <Github />}
+                    {item.title === 'Linkedin' && <Linkedin />}
+                    {item.title === 'email' && <Gmail />}
+                </a>
+            ))
+        }
+    </div>
+</header>
+
+<style>
+    header {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+        padding: 1rem;
+        height: 75%;
+        margin: 0 1%;
+        overflow-y: hidden;
+        position: fixed;
+        z-index: 1000; 
+    }
+
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+    .socialItems {
+        align-self: center;
+    }
+
+    .socialItems a{
+        margin: 0 0.5rem;
+    }
