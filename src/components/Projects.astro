@@ -1,34 +1,35 @@
 ---
 import ArrowRight from "./icons/ArrowRight.astro";
 import projects from "../data/projects";
+import Badge from "./Badge.astro";
 ---
 
 <section id="projects" class="projects">
     <ul>
         {
-            projects.slice(0, 3).map(
+            projects.slice(0, 3).map( // Primeros 3 proyectos
                 (
-                    project, // Primeros 3 proyectos
+                    project
                 ) => (
                     <li>
-                        <h2>{project.title}</h2>
-                        <p>{project.description}</p>
-                        <ul class="tecnologies">
-                            {project.tecnologies.map((tecnology) => (
-                                <li>{tecnology}</li>
-                            ))}
-                        </ul>
-                        {/* <ul>
-                            {project.tags.map((tag) => (
-                                <li>{tag}</li>
-                            ))}
-                        </ul> */}
+                        <div class="date">
+                            <span>Fecha</span>
+                        </div>
+                        <div>
+                            <h2>{project.title}</h2>
+                            <p>{project.description}</p>
+                            <ul class="tecnologies">
+                                {project.tecnologies.map((tecnology) => (
+                                    <Badge>{tecnology}</Badge>
+                                ))}
+                            </ul>
+                        </div>
                     </li>
                 ),
             )
         }
     </ul>
-    <a href="/all_projects">See more projects <ArrowRight /> </a>
+    <a href="/all_projects">See more projects <ArrowRight class="arrow" /> </a>
 </section>
 
 <style>
@@ -36,10 +37,25 @@ import projects from "../data/projects";
         display: inline-flex;
         text-decoration: none;
         align-items: center;
+        color: #d8d8d8;
     }
 
     li {
         list-style: none;
+        display: flex;
+        flex-direction: row;;
+    }
+    li:hover{
+        background-color: #1f2a4b;
+        border-radius: 5px;
+        margin-bottom: 40px;
+        padding-left: 10px;
+        cursor: pointer;
+    }
+    .date {
+        margin-right: 20px;
+        margin-top: 25px;
+
     }
     .tecnologies {
         padding: 0;
@@ -47,9 +63,19 @@ import projects from "../data/projects";
     }
     .tecnologies li {
         margin-right: 5px;
-        border: 1px solid #333;
     }
-    ul{
+    ul {
         padding: 0;
+        margin-bottom: 30px;
+    }
+    a {
+        font-weight: 500;
+    }
+    a:hover {
+        color: #50cbc7;
+        font-size: medium;
+    }
+    a:hover .arrow {
+        padding-left: 5px;
     }
 </style>
