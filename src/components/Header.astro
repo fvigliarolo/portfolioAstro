@@ -20,17 +20,6 @@ const socialItems = [
     { title: "email", url: "fd.vigliarolo@gmail.com" },
     { title: "cv", url: "/cv" },
 ];
-
-const getHash = () => {
-    let hash =  window.location.hash;
-    if (hash === "" || hash === "#" || "#about") 
-         document.getElementsByClassName("options")[0].classList.add("active");
-    if (hash === "#projects") 
-         document.getElementsByClassName("options")[1].classList.add("active");
-    if (hash === "#blog")
-            document.getElementsByClassName("options")[2].classList.add("active");
-};
-
 ---
 
 <header>
