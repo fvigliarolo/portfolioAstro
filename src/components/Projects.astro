@@ -12,12 +12,12 @@ import Badge from "./Badge.astro";
                     project
                 ) => (
                     <li>
-                        <div class="date">
-                            <span>Fecha</span>
+                        <div class="goal">
+                            <span>{project.goal}</span>
                         </div>
-                        <div>
-                            <h2>{project.title}</h2>
-                            <p>{project.description}</p>
+                        <div class="project-data">
+                            <p class="title">{project.title} <ArrowRight class="arrow" /> </p>
+                            <p class="description">{project.description}</p>
                             <ul class="tecnologies">
                                 {project.tecnologies.map((tecnology) => (
                                     <Badge>{tecnology}</Badge>
@@ -33,6 +33,27 @@ import Badge from "./Badge.astro";
 </section>
 
 <style>
+    .project-data{
+        margin-left: 30px;
+    }
+    section{
+        font-size: 0.875em; /* 14 px */
+        color: #d8d8d8;
+    }
+    .title{
+        font-size: 1.2em;
+        font-weight: 500;
+        text-height: 1.5em;
+        display: inline-flex;
+    }
+    .title .arrow {
+        padding-left: 3px;
+    }
+    .description {
+        color: #d8d8d8ba;
+        letter-spacing: 1px;
+        width: 90%;
+    }
     a {
         display: inline-flex;
         text-decoration: none;
@@ -43,25 +64,33 @@ import Badge from "./Badge.astro";
     li {
         list-style: none;
         display: flex;
-        flex-direction: row;;
+        flex-direction: row;
+        margin: 10px auto;
     }
     li:hover{
         background-color: #1f2a4b;
         border-radius: 5px;
-        margin-bottom: 40px;
-        padding-left: 10px;
         cursor: pointer;
     }
-    .date {
-        margin-right: 20px;
-        margin-top: 25px;
-
+    li:hover .arrow {
+        padding-left: 8px;
+    }
+    .goal {
+        margin-top: 20px;
+        padding-left: 10px;
+        color: #d8d8d8ba;
+    }
+    li:hover .title{
+        color: #50cbc7;
     }
     .tecnologies {
         padding: 0;
         display: flex;
+        /* width: 90%; */
+        flex-wrap: wrap;
     }
     .tecnologies li {
+        padding: 2px;
         margin-right: 5px;
     }
     ul {
@@ -73,9 +102,12 @@ import Badge from "./Badge.astro";
     }
     a:hover {
         color: #50cbc7;
-        font-size: medium;
     }
     a:hover .arrow {
         padding-left: 5px;
     }
+    span{
+        text-wrap: nowrap;
+    }
+
 </style>

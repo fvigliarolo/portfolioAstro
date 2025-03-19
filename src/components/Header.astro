@@ -1,26 +1,42 @@
 ---
-import Github  from './icons/github.astro'
-import Linkedin from './icons/linkedin.astro'
-import Gmail from './icons/gmail.astro'
-import Cv from './icons/Cv.astro'
+import Github from "./icons/github.astro";
+import Linkedin from "./icons/linkedin.astro";
+import Gmail from "./icons/gmail.astro";
+import Cv from "./icons/Cv.astro";
+import Line from "./icons/Line.astro";
 
 const navItems = [
-    { title: 'About me ', label: '/about', url: '/#about' },
-    { title: 'Projects', label: 'projects', url: '/#projects' },
-    { title: 'Blog', label: '/blog', url: '/#blog' },
-]
+    { title: "About me ", label: "/about", url: "/#about", class: "options active" },
+    { title: "Projects", label: "projects", url: "/#projects", class: "options"  },
+    { title: "Blog", label: "/blog", url: "/#blog", class: "options"  },
+];
 
 const socialItems = [
-    { title: 'Github', url: 'https://github.com/fvigliarolo' },
-    { title: 'Linkedin', url: 'https://www.linkedin.com/in/federico-vigliarolo/' },
-    { title: 'email', url: 'fd.vigliarolo@gmail.com'},
-    { title: 'cv', url: '/cv'}
-]
+    { title: "Github", url: "https://github.com/fvigliarolo" },
+    {
+        title: "Linkedin",
+        url: "https://www.linkedin.com/in/federico-vigliarolo/",
+    },
+    { title: "email", url: "fd.vigliarolo@gmail.com" },
+    { title: "cv", url: "/cv" },
+];
+
+const getHash = () => {
+    let hash =  window.location.hash;
+    if (hash === "" || hash === "#" || "#about") 
+         document.getElementsByClassName("options")[0].classList.add("active");
+    if (hash === "#projects") 
+         document.getElementsByClassName("options")[1].classList.add("active");
+    if (hash === "#blog")
+            document.getElementsByClassName("options")[2].classList.add("active");
+};
+
 ---
 
 <header>
     <div class="Description">
         <h1>Federico Vigliarolo</h1>
+        <p><strong>Fullstack Developer</strong></p>
         <p>
             I build fullstack applications with javascript stack.
             <br />
@@ -30,7 +46,12 @@ const socialItems = [
     <nav>
         {
             navItems.map((item) => (
-                <a href={item.url} class="nav-item">{item.title}</a>
+                <div class={item.class} onclick="document.querySelectorAll('.options').forEach(el => el.classList.remove('active'));this.classList.add('active');">
+                    <Line class="line"/>
+                    <a href={item.url} class="nav-item">
+                        {item.title}
+                    </a>
+                </div>
             ))
         }
     </nav>
@@ -38,10 +59,10 @@ const socialItems = [
         {
             socialItems.map((item) => (
                 <a href={item.url} class="social-item">
-                    {item.title === 'Github' && <Github />}
-                    {item.title === 'Linkedin' && <Linkedin />}
-                    {item.title === 'email' && <Gmail />}
-                    {item.title === 'cv' && <Cv />}
+                    {item.title === "Github" && <Github />}
+                    {item.title === "Linkedin" && <Linkedin />}
+                    {item.title === "email" && <Gmail />}
+                    {item.title === "cv" && <Cv />}
                 </a>
             ))
         }
@@ -49,6 +70,39 @@ const socialItems = [
 </header>
 
 <style>
+    .options{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        height: 20px;
+    }
+    .options.active .nav-item{
+        display: block;
+        padding-right: 10px;
+        cursor: pointer;
+        color: #d8d8d8;
+    }
+    .options.active .line{
+        display: block;
+        height: 100px;
+        padding-right: 10px;
+        cursor: pointer;
+        color: #d8d8d8;
+    }
+    .options .line{
+        height: 30px;
+    }
+    .options:hover .line{
+        display: block;
+        height: 100px;
+        padding-right: 10px;
+        cursor: pointer;
+        color: #d8d8d8;
+
+    }
+    .options:hover .nav-item{
+        color: #d8d8d8;
+    }
     header {
         display: flex;
         flex-direction: column;
@@ -59,23 +113,39 @@ const socialItems = [
         margin: 0 1%;
         overflow-y: hidden;
         position: fixed;
-        z-index: 1000; 
+        z-index: 1000;
+    }
+    h1 {
+        font-size: 2.8rem;
+        line-height: 1rem;
+    }
+    strong {
+        font-size: 1.1rem;
     }
 
     nav {
         display: flex;
         flex-direction: column;
         gap: 1rem;
+        margin-bottom: 100px;
+    }
+    p {
+        letter-spacing: 1px;
     }
 
     a {
         text-decoration: none;
-        color: #000;
+        color: #d8d8d8ba;
     }
     .socialItems {
-        align-self: center;
+        align-self: flex-start;
     }
 
-    .socialItems a{
+    .socialItems a {
         margin: 0 0.5rem;
     }
+
+    .socialItems a:hover {
+        color: #d8d8d8;
+    }
+</style>
