@@ -1,10 +1,22 @@
 const projects = [
     {
         title: "Agenda Barber System v2",
-        description: `Building on version 1, the frontend was refactored to work with React. The user experience was also improved by adding interactive forms for service reservations.
-        Additionally, backend practices were improved regarding response formats to meet REST standards.`,
+        id: 1,
+        project_type: "Fullstack",
+        description: `Fullstack system to manage barbershop schedules.
+
+        The goal was to develop a backend that would handle all requests from different frontends that were on a whitelist.
+        
+        Additionally, each frontend would have its own associated database, allowing data isolation between clients.
+        
+        On the frontend side, there is a calendar that shows available time slots to book appointments at the barbershop.`,
         url: "",
-        extended_description: "",
+        extended_description: [`In this project, I aimed to offer the system I had developed in version 1 as a service. To achieve this, I faced the challenge of improving the development practices used previously and enhancing the user experience.`,
+            `The main tasks I had to undertake included refactoring the frontend and improving the REST API standards for the backend.`,
+            `The goal of the frontend refactoring was to implement React.js for the booking calendar. In version 1, the calendar was built using HTML, CSS, and vanilla JavaScript. After migrating to the new technology, I reduced the amount of code by approximately 75%.`,
+            `By adopting React.js, I achieved a direct improvement in performance for the websites using the calendar. Additionally, as an extra benefit, I now have more maintainable code that can also be used as an NPM library in other projects.`,
+            `On the backend side, improving REST practices enhanced the quality of data handling. I also implemented security improvements in the process of retrieving available time slots for different barbershops.`,`When deploying the application, one of my tasks was managing the backend server, which runs on a VPS. As an example, I also deployed a frontend on a traditional hosting service.`
+        ],
         github: [],
         goal: "Side project",
         tecnologies: ["Html", "CSS", "React", "MySQL", "Node.js"],
@@ -13,12 +25,19 @@ const projects = [
     },
     {
         title: "Box Assistant",
+        id: 2,
+        project_type: "Frontend",
         description: `This system has two roles: student and teacher.
         From a dashboard, teachers are responsible for creating daily boxing exercise routines.
         Meanwhile, students can view the routine that the teacher has created.
         This was a simple project aimed at learning how to use backend and databases as services. In this case, Supabase was used.`,
         url: "",
-        extended_description: "",
+        extended_description: [`I started this project while looking for a solution to a daily problem I faced at my gym. During my boxing training sessions, there were too many students, which overwhelmed the coach and caused delays when I needed to ask about the day's workout routine.`,
+            `To solve this, I decided to develop a system where the coach could create the daily workout plan, allowing students to access the website and view the routine and training order for each day.`,
+            `From a technical perspective, one of my goals was to avoid developing a custom backend. To achieve this, I researched existing solutions and discovered Backend as a Service (BaaS) platforms.`,
+            `After building the frontend for the application, I chose Supabase as the backend. Once the system was complete, I explored free deployment options.`,
+            `This led to my first deployment using Vercel and my first experience with Backend as a Service.`
+        ],
         github: ["https://github.com/fvigliarolo/box-assistant"],
         goal: "Practice",
         tecnologies: ["Html", "CSS", "React", "Deploy Vercel", "Supabase", "NPM"],
@@ -27,9 +46,15 @@ const projects = [
     },
     {
         title: "Hospital System (NoSQL Project)",
+        id: 3,
+        project_type: "Backend",
         description: `A hospital system where patients and medical records are registered. The records can then be consulted either generally or with specific parameters.`,
         url: "College",
-        extended_description: "",
+        extended_description: [`In this university assignment, along with two classmates, we faced the challenge of creating a system that used a NoSQL database service of our choice. As a team, we selected Firebase.`,
+            `The task consisted of developing a backend with any technology we wanted, as long as it performed NoSQL queries. Additionally, the final result had to be delivered in Docker and include automated tests triggered by an orchestrator.`,
+            `For the automated tests, I decided to create Postman scripts for backend requests. After defining the test cases, I structured a command using Newman, Postman’s command-line tool.`,
+            `Finally, we used Jenkins to automate the execution and generate reports of the tests run with Newman.`
+        ],
         github: ["https://github.com/mfmaite/nosql-lab2"],
         goal: "College",
         tecnologies: ["Node.js", "TypeScript", "Firebase", "Postman", "Jenkins", "Docker", "npm"],
@@ -38,12 +63,14 @@ const projects = [
     },
     {
         title: "Museums App",
+        id: 4,
+        project_type: "Fullstack",
         description: `A web-based museum system with 3 user profiles: Clients, app administrators, and museum administrators
         Clients who accessed the system could view all museums registered in the system, including their address, opening hours, exhibitions, tours, and activities.
         App administrators are responsible for registering museums and managing the bulletin board generated by each museum's publications.
         Museum administrators can manage schedules, input activities (with quotas), assign and manage the inventory of materials needed for activities, maintain exhibition inventory, and handle the museum's agenda (calendar).`,
         url: "College",
-        extended_description: "College",
+        extended_description: "",
         github: ["https://github.com/fvigliarolo/MuseosApp"],
         goal: "College",
         tecnologies: ["Html", "CSS", "JavaScript", "PHP", "MySQL", "GCP"],
@@ -52,6 +79,8 @@ const projects = [
     },
     {
         title: "Agenda Barber System v1",
+        id: 5,
+        project_type: "Fullstack",
         description: `Fullstack system to manage barbershop schedules.
 
         The goal was to develop a backend that would handle all requests from different frontends that were on a whitelist.
@@ -69,6 +98,8 @@ const projects = [
     },
     {
         title: "Administration Barber System",
+        id: 6,
+        project_type: "Frontend",
         description: `A web system designed to manage and handle reservations and schedules of the barbershop system.
 
         Manage each barber's weekly schedule at the barbershop.
@@ -86,7 +117,9 @@ const projects = [
     },
 
     {
-        title: "DBMS (EDA Project)",
+        title: "Database managing system",
+        id: 7,
+        project_type: "Backend",
         description: `A database manager developed in low-level language.
 
         This project was a university assignment for the Data Structures and Algorithms course.
@@ -101,7 +134,9 @@ const projects = [
         tags: ["Operating Systems", "Memory Management"]
     },
     {
-        title: "Gym App (PAP Project)",
+        title: "Gym App",
+        id: 8,
+        project_type: "Fullstack",
         description: `A system for gyms where clients can register for classes at the gyms they choose, provided there are available spots for the selected time.
 
         On the other hand, instructors (associated with one or more gyms) create classes and schedules, setting the number of spots available and any desired restrictions.`,

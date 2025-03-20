@@ -1,0 +1,121 @@
+---
+import LayoutProjects from "../../layouts/LayoutProjects.astro";
+import projects from "../../data/projects";
+import ArrowLeft from "../../components/icons/ArrowLeft.astro";
+import Badge from "../../components/Badge.astro";
+import Link from "../../components/icons/Link.astro";
+import Github from "../../components/icons/github.astro";
+const project = projects[2];
+---
+
+<LayoutProjects>
+    <article>
+        <header>
+            <a href="/projects">
+                <h2><ArrowLeft class="arrowLeft" /> Projects</h2></a
+            >
+            <h1>{project.title}</h1>
+        </header>
+        <section>
+            <div class="links">
+                <ul>
+                    <li>
+                        <Link class="iconLink" /><a href={project.url}>Demo</a>
+                    </li>
+                    <li>
+                        <Github class="iconLink" /><a href={project.github[0]}>Github</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="tecnologies">
+                    {
+                        project.tecnologies.map((tecnology) => (
+                            <Badge>{tecnology}</Badge>
+                        ))
+                    }
+                </ul>
+            </div>
+        </section>
+        <article>
+            <h2>About this project</h2>
+            <p>{project.description}</p>
+
+            <h2>Walkthrough</h2>
+            {
+                project.extended_description.map((paragraph) => (
+                    <p>{paragraph}</p>
+                ))
+            }
+            <h3>Tags</h3>
+            <ul class="tags">
+                {project.tags.map((tag) => <Badge class="tag">{tag}</Badge>)}
+            </ul>
+        </article>
+    </article>
+    </LayoutProjects>
+    <style>
+        ul {
+            display: flex;
+        }
+
+        p {
+            margin: 20px 0;
+            letter-spacing: 1px;
+        }
+        li {
+            list-style: none;
+            margin-right: 20px;
+        }
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            margin-right: 10px;
+        }
+
+        section {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        .links li {
+            background-color: #1f2a4b;
+            border-radius: 15px;
+            width: 80px;
+            margin: 5px;
+            padding: 2px;
+        }
+
+        .links ul li {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: center;
+            padding: 5px;
+        }
+
+        .links li{
+            cursor: pointer;
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        .links li:hover a {
+            color: #50cbc7;
+        }
+
+        .links li:hover .iconLink {
+            padding-right: 3px;
+        }
+    </style>
+
