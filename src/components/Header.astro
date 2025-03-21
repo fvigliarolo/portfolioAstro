@@ -28,7 +28,7 @@ const socialItems = [
         <p><strong>Fullstack Developer</strong></p>
         <p>
             I build fullstack applications with javascript stack.
-            <br />
+            <br class="hide-on-mobile"/>
             The lefting hours of the day, I work as a QA Engineer.
         </p>
     </div>
@@ -167,6 +167,44 @@ const socialItems = [
             gap: 1rem;
             align-self: center;
 
+        }
+    }
+    @media (max-width: 1300px) {
+        header {
+            height: 20%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            align-content: center;
+            position: relative;
+        }
+        nav {
+            display: none;
+
+        }
+        h1 {
+            text-align-last: center;
+            font-size: 2rem;
+        }
+        p{
+            text-align-last: center;
+            margin-bottom: 0;
+        }
+        .hide-on-mobile
+        {
+            display: none;
+        }
+        strong {
+            font-size: 1rem;
+        }
+
+        .socialItems {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-self: center;
         }
     }
 </style>
