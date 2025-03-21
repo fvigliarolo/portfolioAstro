@@ -1,13 +1,13 @@
 ---
 ---
 <aside class="blog" id="blog">
+    <h3>Blog</h3>
     <ul>
-
         <li>
-            <h2>My carreer path</h2>
+            <h2>Comming soon ...</h2>
         </li>
         <li>
-            <h2>How i lernt linux</h2>
+            <h2></h2>
         </li>
     </ul>
 </aside>
@@ -25,5 +25,17 @@
     li:hover{
         color: #50cbc7;
         cursor: pointer;
+    }
+    h3{
+        display: none;
+    }
+    @media (max-width: 768px) {
+        h3{
+            display: block;
+            color: #d8d8d8;
+        }
+        aside {
+            margin-top: 20px;
+        }
     }
 </style>

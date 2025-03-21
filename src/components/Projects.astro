@@ -5,18 +5,21 @@ import Badge from "./Badge.astro";
 ---
 
 <section id="projects" class="projects">
+    <h3>Projects</h3>
     <ul>
         {
-            projects.slice(0, 3).map( // Primeros 3 proyectos
-                (
-                    project
-                ) => (
-                    <li onclick={`window.location.href='projects/${project.id}'`}>
+            projects.slice(0, 3).map(
+                (project) => (
+                    <li
+                        onclick={`window.location.href='projects/${project.id}'`}
+                    >
                         <div class="goal">
                             <span>{project.goal}</span>
                         </div>
                         <div class="project-data">
-                            <p class="title">{project.title} <ArrowRight class="arrow" /> </p>
+                            <p class="title">
+                                {project.title} <ArrowRight class="arrow" />{" "}
+                            </p>
                             <h2>{project.project_type}</h2>
                             <p class="description">{project.description}</p>
                             <ul class="tecnologies">
@@ -34,14 +37,14 @@ import Badge from "./Badge.astro";
 </section>
 
 <style>
-    .project-data{
+    .project-data {
         margin-left: 30px;
     }
-    section{
+    section {
         font-size: 0.875em; /* 14 px */
         color: #d8d8d8;
     }
-    .title{
+    .title {
         font-size: 1.2em;
         font-weight: 500;
         text-height: 1.5em;
@@ -70,7 +73,7 @@ import Badge from "./Badge.astro";
         flex-direction: row;
         margin: 10px auto;
     }
-    li:hover{
+    li:hover {
         background-color: #1f2a4b;
         border-radius: 5px;
         cursor: pointer;
@@ -83,7 +86,7 @@ import Badge from "./Badge.astro";
         padding-left: 10px;
         color: #d8d8d8ba;
     }
-    li:hover .title{
+    li:hover .title {
         color: #50cbc7;
     }
     .tecnologies {
@@ -108,14 +111,23 @@ import Badge from "./Badge.astro";
     a:hover .arrow {
         padding-left: 5px;
     }
-    /* span{
-        text-wrap: nowrap;
-    } */
-    h2{
+    h2 {
         font-size: 1.1em;
         margin-top: 0;
         color: #d8d8d8ba;
         font-weight: 500;
     }
-
+    h3 {
+        display: none;
+    }
+    @media (max-width: 768px) {
+        h3 {
+            display: block;
+            color: #d8d8d8;
+        }
+        .ul{
+            color: red;
+            background-color: red;
+        }
+    }
 </style>

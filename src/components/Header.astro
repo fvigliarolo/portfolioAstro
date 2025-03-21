@@ -137,4 +137,36 @@ const socialItems = [
     .socialItems a:hover {
         color: #d8d8d8;
     }
+
+    @media (max-width: 768px) {
+        header {
+            height: 30%;
+            margin: 0;
+            margin-bottom: 20px;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            align-content: center;
+            position: relative;
+        }
+        nav {
+            display: none;
+
+        }
+        h1 {
+            font-size: 2rem;
+        }
+        strong {
+            font-size: 1rem;
+        }
+
+        .socialItems {
+            display: flex;
+            flex-direction: row;
+            gap: 1rem;
+            align-self: center;
+
+        }
+    }
 </style>

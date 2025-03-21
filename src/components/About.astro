@@ -3,6 +3,7 @@
 ---
 
 <article class="about" id="about">
+    <h3>About</h3>
     <p>
         As a self-taught developer, I always feel the need to seek solutions
         from a technological perspective. This constant drive to find solutions
@@ -37,5 +38,19 @@
     }
     strong {
         color: #d8d8d8;
+    }
+
+    h3{
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        h3{
+            display: block;
+            color: #d8d8d8;
+        }
+        article {
+            margin-bottom: 40px;
+        }
     }
 </style>
