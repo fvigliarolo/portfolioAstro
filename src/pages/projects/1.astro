@@ -1,9 +1,10 @@
----
+<---
 import LayoutProjects from "../../layouts/LayoutProjects.astro";
 import projects from "../../data/projects";
 import ArrowLeft from "../../components/icons/ArrowLeft.astro";
 import Badge from "../../components/Badge.astro";
 import Link from "../../components/icons/Link.astro";
+import ArrowRight from "../../components/icons/ArrowRight.astro";
 const project = projects[0];
 ---
 
@@ -43,6 +44,10 @@ const project = projects[0];
                     <p>{paragraph}</p>
                 ))
             }
+            <!-- agregamos seccion  "ver tambien" -->
+            <h2>See also</h2>
+               <p>{project.refereces.text}</p>
+               <a class="references" href={project.refereces?.links[0]} target="_blank">Administration barber system <ArrowRight class="arrowRight"> </a>
             <h3>Tags</h3>
             <ul class="tags">
                 {project.tags.map((tag) => <Badge class="tag">{tag}</Badge>)}
@@ -114,10 +119,21 @@ const project = projects[0];
             padding-right: 3px;
         }
 
+        .references{
+            color: #50cbc7;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        .references:hover .arrowRight {
+            padding-left: 3px;
+        }
+
         @media (max-width: 768px) {
             section {
                 justify-content: center;
             }
         }
-    </style></LayoutProjects
->
+    </style>
+    </LayoutProjects>

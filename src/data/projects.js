@@ -10,13 +10,17 @@ const projects = [
         Additionally, each frontend would have its own associated database, allowing data isolation between clients.
         
         On the frontend side, there is a calendar that shows available time slots to book appointments at the barbershop.`,
-        url: "",
+        url: "https://calendar.agenduy.com/",
         extended_description: [`In this project, I aimed to offer the system I had developed in version 1 as a service. To achieve this, I faced the challenge of improving the development practices used previously and enhancing the user experience.`,
             `The main tasks I had to undertake included refactoring the frontend and improving the REST API standards for the backend.`,
             `The goal of the frontend refactoring was to implement React.js for the booking calendar. In version 1, the calendar was built using HTML, CSS, and vanilla JavaScript. After migrating to the new technology, I reduced the amount of code by approximately 75%.`,
             `By adopting React.js, I achieved a direct improvement in performance for the websites using the calendar. Additionally, as an extra benefit, I now have more maintainable code that can also be used as an NPM library in other projects.`,
             `On the backend side, improving REST practices enhanced the quality of data handling. I also implemented security improvements in the process of retrieving available time slots for different barbershops.`,`When deploying the application, one of my tasks was managing the backend server, which runs on a VPS. As an example, I also deployed a frontend on a traditional hosting service.`
         ],
+        refereces: {
+            links: ["https://administration.agenduy.com/#"],
+            text: `Check the app pinned below. There, you will be able to access the administrative dashboard of the calendar implemented for your business. An article will be published soon with extended details about the project.`
+        },
         github: [],
         goal: "Side project",
         tecnologies: ["Html", "CSS", "React", "MySQL", "Node.js"],
@@ -107,7 +111,7 @@ const projects = [
         View reservations for the day, for a specific date, or within a time period.
         
         Create or delete reservations.`,
-        url: "",
+        url: "https://administration.agenduy.com/",
         extended_description: "",
         github: ["https://github.com/fvigliarolo/barberSystem/tree/master/frontend/administracion-barberias-v2"],
         goal: "Side project",
