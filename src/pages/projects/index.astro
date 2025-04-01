@@ -22,7 +22,7 @@ import ArrowRight from '../../components/icons/ArrowRight.astro';
                             <div>
                                 <span></span>
                             </div>
-                            <div onclick={project.extended_description != '' ? `window.location.href='projects/${project.id}'`: ""}>
+                            <div onclick={project.extended_description != '' ? `window.location.href='./${project.id}'`: ""}>
                                 <h3><a>{project.title}</a> {project.extended_description != '' ? <ArrowRight class="arrowRight"/> : ""}</h3>
                                 <p>{project.description}</p>
                                 <ul class="tecnologies">
