@@ -52,7 +52,7 @@ const projects = [
         title: "Hospital System (NoSQL Project)",
         id: 3,
         project_type: "Backend",
-        description: `A hospital system where patients and medical records are registered. The records can then be consulted either generally or with specific parameters.`,
+        description: `A hospital system where patients and medical records are registered. The records can then be queried either generally or with specific parameters.`,
         url: "College",
         extended_description: [`In this university assignment, along with two classmates, we faced the challenge of creating a system that used a NoSQL database service of our choice. As a team, we selected Firebase.`,
             `The task consisted of developing a backend with any technology we wanted, as long as it performed NoSQL queries. Additionally, the final result had to be delivered in Docker and include automated tests triggered by an orchestrator.`,
