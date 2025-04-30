@@ -1,36 +1,58 @@
 ---
+import ArrowRight from "./icons/ArrowRight.astro";
+const allPosts = await Astro.glob("../pages/blog/*.md");
 ---
+
 <aside class="blog" id="blog">
     <h3>Blog</h3>
     <ul>
+        {Object.entries(allPosts)
+            .sort((a, b) => b[1].frontmatter.id - a[1].frontmatter.id)
+            .slice(0, 3)
+            .map(([slug, { frontmatter }]) => {
+                const date = new Date(frontmatter.date);
+                const formattedDate = date.toLocaleDateString("es-ES", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                });
+                return (
+                    <li>
+                        <a href={"blog/" + frontmatter.id}>
+                            <h4>{frontmatter.title}<ArrowRight class="arrow" /></h4>
+                        </a>
+                    </li>
+                );
+            })
+            
+        }
         <li>
-            <h2>Coming soon ...</h2>
-        </li>
-        <li>
-            <h2></h2>
-        </li>
     </ul>
 </aside>
 
 <style>
-    aside{
+    aside {
         font-size: 0.875em; /* 14 px */
         color: #d8d8d8;
         margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 20px;
     }
-
-    li{
+    .arrow {
+        padding-left: 3px;
+    }
+    h4:hover .arrow{
+        padding-left: 8px;
+    }
+    li {
         list-style: none;
     }
-    li:hover{
+    li:hover {
         color: #50cbc7;
         cursor: pointer;
     }
-    h3{
-        /* display: none; */
-    }
     @media (max-width: 768px) {
-        h3{
+        h3 {
             display: block;
             color: #d8d8d8;
         }
@@ -39,17 +61,16 @@
         }
     }
     @media (max-width: 1300px) {
-        h3{
+        h3 {
             display: block;
             color: #d8d8d8;
         }
         aside {
             width: 100%;
         }
-        ul{
+        ul {
             padding: 0;
             text-align: center;
         }
-
     }
 </style>
